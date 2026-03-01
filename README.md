@@ -1,4 +1,4 @@
-# Nebula Reveal Bot
+# 🌌 Nebula Reveal Bot
 
 A GitHub Actions bot that reveals **1–10 pixels per day** of a nebula photograph — one commit per pixel.
 
