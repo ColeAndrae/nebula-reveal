@@ -6,9 +6,9 @@ A GitHub Actions bot that reveals **1–10 pixels per day** of a nebula photogra
 
 | Stat | Value |
 |------|-------|
-| Pixels revealed | 3 / 4,000 |
-| Completion | 0.07% |
-| Total commits | 3 |
+| Pixels revealed | 4 / 4,000 |
+| Completion | 0.10% |
+| Total commits | 4 |
 | Estimated completion | ~1y 12m |
 
 ![Current State](current_large.png)
