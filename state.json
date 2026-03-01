@@ -1,8 +1,9 @@
 {
   "revealed": [
     1216,
-    904
+    904,
+    274
   ],
-  "total_commits": 2,
-  "pixels_revealed": 2
+  "total_commits": 3,
+  "pixels_revealed": 3
 }
