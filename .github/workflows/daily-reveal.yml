@@ -1,0 +1,50 @@
+name: 🌌 Daily Nebula Reveal
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Midnight UTC every day
+  workflow_dispatch:       # Allow manual runs too
+
+jobs:
+  reveal:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install Pillow
+
+      - name: Configure git
+        run: |
+          git config user.name "nebula-bot[bot]"
+          git config user.email "nebula-bot@users.noreply.github.com"
+
+      - name: Plan today's pixels
+        run: python reveal.py plan
+
+      - name: Reveal each pixel as its own commit
+        run: |
+          pixels=$(python -c "import json; print(' '.join(map(str, json.load(open('pixels_today.json')))))")
+
+          if [ -z "$pixels" ]; then
+            echo "🎉 Nebula fully revealed!"
+            exit 0
+          fi
+
+          for idx in $pixels; do
+            python reveal.py $idx
+
+            pct=$(python -c "import json; s=json.load(open('state.json')); print(f\"{s['pixels_revealed']}/{4000} ({s['pixels_revealed']/4000*100:.2f}%)\")")
+
+            git add current.png current_large.png state.json README.md
+            git commit -m "🌌 Pixel $idx revealed — $pct"
+          done
+
+          git push
