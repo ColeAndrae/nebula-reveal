@@ -8,10 +8,14 @@ on:
 jobs:
   reveal:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history so pushes don't conflict
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -40,11 +44,9 @@ jobs:
 
           for idx in $pixels; do
             python reveal.py $idx
-
             pct=$(python -c "import json; s=json.load(open('state.json')); print(f\"{s['pixels_revealed']}/{4000} ({s['pixels_revealed']/4000*100:.2f}%)\")")
-
             git add current.png current_large.png state.json README.md
             git commit -m "🌌 Pixel $idx revealed — $pct"
           done
 
-          git push
+          git push origin main
