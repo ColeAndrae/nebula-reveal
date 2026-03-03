@@ -27,8 +27,8 @@ jobs:
 
       - name: Configure git
         run: |
-          git config user.name "nebula-bot[bot]"
-          git config user.email "nebula-bot@users.noreply.github.com"
+          git config user.name "ColeAndrae"
+	  git config user.email "your@email.com"
 
       - name: Plan today's pixels
         run: python reveal.py plan
