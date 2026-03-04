@@ -2,8 +2,8 @@ name: 🌌 Daily Nebula Reveal
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Midnight UTC every day
-  workflow_dispatch:       # Allow manual runs too
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   reveal:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history so pushes don't conflict
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,7 +28,7 @@ jobs:
       - name: Configure git
         run: |
           git config user.name "ColeAndrae"
-	  git config user.email "cole@theandraes.com"
+          git config user.email "cole@theandraes.com"
 
       - name: Plan today's pixels
         run: python reveal.py plan
