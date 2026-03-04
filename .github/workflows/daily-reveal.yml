@@ -28,7 +28,7 @@ jobs:
       - name: Configure git
         run: |
           git config user.name "ColeAndrae"
-	  git config user.email "your@email.com"
+	  git config user.email "cole@theandraes.com"
 
       - name: Plan today's pixels
         run: python reveal.py plan
