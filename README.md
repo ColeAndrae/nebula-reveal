@@ -1,29 +1,23 @@
 # 🌌 Nebula Reveal Bot
 
-A GitHub Actions bot that reveals **1–10 pixels per day** of a nebula photograph — one commit per pixel.
+A GitHub Actions bot that reveals **50 pixels per commit, 1–10 commits per day** of a nebula photograph.
 
 ## Progress
 
 | Stat | Value |
 |------|-------|
-| Pixels revealed | 18 / 4,000 |
-| Completion | 0.45% |
-| Total commits | 18 |
-| Estimated completion | ~1y 11m |
+| Pixels revealed | 50 / 300,502 |
+| Completion | 0.017% |
+| Total commits | 1 |
+| Estimated completion | ~2y 12m |
 
 ![Current State](current_large.png)
 
-> *The image is 80×50 pixels. Each day reveals 1–10 pixels randomly, with one commit per pixel.*
+> *The image is 694×433 pixels (300,502 total). Each commit reveals 50 pixels, with 1–10 commits per day.*
 
 ## How it works
 
 1. **GitHub Actions** runs daily via cron
-2. `reveal.py plan` picks 1–10 random unrevealed pixels for the day
-3. A loop commits each pixel individually — so your commit history reflects the real count
-4. Each commit updates `current_large.png` in the README
-
-## Setup
-
-1. Push this repo to GitHub
-2. Go to **Settings → Actions → General → Workflow permissions** → set to **Read and write**
-3. Trigger manually from the **Actions** tab, or wait for midnight UTC
+2. `reveal.py plan` picks 1–10 random batches for the day
+3. Each batch of 50 pixels gets its own commit
+4. The nebula slowly emerges over ~3 years ✨
