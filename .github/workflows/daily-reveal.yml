@@ -30,24 +30,20 @@ jobs:
           git config user.name "ColeAndrae"
           git config user.email "cole@theandraes.com"
 
-      - name: Plan today's pixels
+      - name: Plan today's batches
         run: python reveal.py plan
 
-      - name: Reveal each pixel as its own commit
+      - name: Reveal each batch as its own commit
         run: |
-          pixels=$(python -c "import json; print(' '.join(map(str, json.load(open('pixels_today.json')))))")
-
-          if [ -z "$pixels" ]; then
-            echo "🎉 Nebula fully revealed!"
+          num_batches=$(python -c "import json; print(len(json.load(open('pixels_today.json'))))")
+          if [ "$num_batches" -eq 0 ]; then
+            echo "Done!"
             exit 0
           fi
-
-          for idx in $pixels; do
-            python reveal.py $idx
-            pct=$(python -c "import json; s=json.load(open('state.json')); print(f\"{s['pixels_revealed']}/{4000} ({s['pixels_revealed']/4000*100:.2f}%)\")")
+          for i in $(seq 0 $((num_batches - 1))); do
+            python reveal.py $i
+            pct=$(python -c "import json; s=json.load(open('state.json')); print(f\"{s['pixels_revealed']}/300502\")")
             git add current.png current_large.png state.json README.md
-            git commit -m "🌌 Pixel $idx revealed — $pct"
+            git commit -m "🌌 Batch $i — $pct pixels"
           done
-
           git push origin main
-# updated Thu  5 Mar 2026 07:17:01 PST
