@@ -1,4 +1,4 @@
-# Nebula Reveal Bot
+# 🌌 Nebula Reveal Bot
 
 A GitHub Actions bot that reveals **50 pixels per commit, 1–10 commits per day** of a nebula photograph.
 
@@ -6,9 +6,9 @@ A GitHub Actions bot that reveals **50 pixels per commit, 1–10 commits per day
 
 | Stat | Value |
 |------|-------|
-| Pixels revealed | 200 / 300,502 |
-| Completion | 0.067% |
-| Total commits | 4 |
+| Pixels revealed | 250 / 300,502 |
+| Completion | 0.083% |
+| Total commits | 5 |
 | Estimated completion | ~2y 12m |
 
 ![Current State](current_large.png)
