@@ -91,7 +91,7 @@ def plan_day():
         return
 
     # Each entry in the plan is a starting index for a batch of PIXELS_PER_COMMIT
-    num_batches = random.randint(1, 10)
+    num_batches = random.randint(5, 25)
     # Pick num_batches * PIXELS_PER_COMMIT random pixels
     count = min(num_batches * PIXELS_PER_COMMIT, len(unrevealed))
     chosen = random.sample(unrevealed, count)
