@@ -6,9 +6,9 @@ A GitHub Actions bot that reveals **50 pixels per commit, 1–10 commits per day
 
 | Stat | Value |
 |------|-------|
-| Pixels revealed | 20,250 / 300,502 |
-| Completion | 6.739% |
-| Total commits | 405 |
+| Pixels revealed | 20,300 / 300,502 |
+| Completion | 6.755% |
+| Total commits | 406 |
 | Estimated completion | ~2y 9m |
 
 ![Current State](current_large.png)
